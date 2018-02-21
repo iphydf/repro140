@@ -3,11 +3,11 @@ workspace(name = "repro140")
 # Haskell
 # =========================================================
 
-RULES_HASKELL_COMMIT = "485efdec6f30cdbbcc1631071e0bc39fa0721496"
+RULES_HASKELL_COMMIT = "91874d042d87f1f0681f9bc18642662bc7e37419"
 
 http_archive(
     name = "io_tweag_rules_haskell",
-    sha256 = "b3cc7b890f63bf6cc1de29e810181eac863a5259d4823ce40ccf1a279007bbfa",
+    sha256 = "005c1e000af084ecc4a2ee23907160d73d903da6746211478d809480a51182a8",
     strip_prefix = "rules_haskell-%s" % RULES_HASKELL_COMMIT,
     urls = ["https://github.com/tweag/rules_haskell/archive/%s.tar.gz" % RULES_HASKELL_COMMIT],
 )
@@ -23,6 +23,7 @@ new_local_repository(
     name = "ghc",
     build_file = "third_party/BUILD.ghc",
     path = "/opt/ghc/8.0.1",  # Change path accordingly.
+    #path = "/usr",  # Change path accordingly.
 )
 
 new_cabal_package(

@@ -16,7 +16,9 @@ filegroup(
 
 cc_library(
     name = "ffi",
+    #hdrs = glob(["lib/ghc/include/**/*.h"]),
     hdrs = glob(["lib/ghc-8.0.1/include/**/*.h"]),
+    #includes = ["lib/ghc/include"],
     includes = ["lib/ghc-8.0.1/include"],
     visibility = ["//visibility:public"],
 )

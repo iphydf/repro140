@@ -28,7 +28,7 @@ install:
 - sudo ln -s $(which ld) /opt/ghc/8.0.1/bin/ld
 - sudo ln -s $(which realpath) /opt/ghc/8.0.1/bin/realpath
 
-script: bazel build @haskell_dlist//:test
+script: bazel test @haskell_dlist//:test
 
 git:
   depth: 1
