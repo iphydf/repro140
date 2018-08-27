@@ -14,7 +14,7 @@ before_install:
 
 install: echo 'build --jobs=4 --curses=no --verbose_failures' >> $HOME/.bazelrc
 
-script: bazel test @haskell_dlist//:test
+script: bazel test -c dbg @haskell_dlist//:test
 
 before_cache: rm -rf $HOME/.cache/bazel/_bazel_$USER/install
 
