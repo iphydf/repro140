@@ -1,4 +1,6 @@
+load("@ai_formation_hazel//:hazel.bzl", "hazel_library")
 load("@io_tweag_rules_haskell//haskell:haskell.bzl", "haskell_library")
+load("@repro400//third_party/haskell:packages.bzl", "packages")
 
 cc_library(
     name = "cbits",
@@ -11,16 +13,14 @@ cc_library(
 haskell_library(
     name = "tf-random",
     srcs = glob(["src/**/*.*hs"]),
-    prebuilt_dependencies = [
-        "base",
-        "time",
-    ],
     src_strip_prefix = "src",
-    version = "0.5",
+    version = packages["tf-random"].version,
     visibility = ["//visibility:public"],
     deps = [
         ":cbits",
-        "@haskell_primitive//:primitive",
-        "@haskell_random//:random",
+        hazel_library("base"),
+        hazel_library("primitive"),
+        hazel_library("random"),
+        hazel_library("time"),
     ],
 )

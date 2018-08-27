@@ -1,0 +1,5 @@
+test --test_output=errors
+
+build:clang --copt="-DCOMPILER_CLANG"
+build:gcc --copt="-DCOMPILER_GCC"
+build:linux --copt="-DPLATFORM_LINUX"
