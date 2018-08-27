@@ -1,0 +1,12 @@
+load("@ai_formation_hazel//:hazel.bzl", "hazel_library")
+load("@io_tweag_rules_haskell//haskell:haskell.bzl", "haskell_test")
+
+haskell_test(
+    name = "test",
+    srcs = ["Main.hs"],
+    src_strip_prefix = "tests",
+    deps = [
+        hazel_library("base"),
+        hazel_library("primitive"),
+    ],
+)
